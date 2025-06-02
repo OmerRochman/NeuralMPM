@@ -1,0 +1,54 @@
+[project]
+name = "neuralmpm"
+version = "0.1.0"
+requires-python = ">= 3.10"
+description = "Neural Material Point Method"
+authors = [
+  {name = "Omer Rochman", email = "o.rochman@uliege.be"},
+  {name = "Sacha Lewin", email = "sacha.lewin@uliege.be"},
+]
+classifiers = [
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Natural Language :: English",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+dependencies = [
+  "dawgz==1.0.4",
+  "h5py==3.12.1",
+  "imageio==2.37.0",
+  "jax[cuda12]",
+  "matplotlib==3.10.3",
+  "moviepy==1.0.3",
+  "natsort==8.4.0",
+  "numpy==1.26.4",
+  "ott-jax",
+  "torch==2.5.1",
+  "torchvision==0.20.1",
+  "tqdm==4.67.1",
+  "wandb==0.17.1",
+]
+
+[project.optional-dependencies]
+geom = [
+  "torch_geometric==2.6.1",
+  "torch_cluster==1.6.3",
+  "torch_scatter==2.1.2",
+]
+
+[project.urls]
+documentation = "https://github.com/OmerRochman/NeuralMPM"
+
+[tool.setuptools.packages.find]
+include = ["neuralmpm"]
+
+[project.scripts]
+nmpm-train = "neuralmpm.scripts.train:main"
+nmpm-exp = "neuralmpm.scripts.experiment:main"
+nmpm-render = "neuralmpm.scripts.render:main"
+nmpm-rollout = "neuralmpm.scripts.rollout:main"
+nmpm-eval = "neuralmpm.scripts.eval:main"
+nmpm-stats = "neuralmpm.scripts.stats:main"
