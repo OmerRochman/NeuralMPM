@@ -126,7 +126,7 @@ class Experiment:
 
         slurm_params = {
             "name": "neuralmpm training",
-            "backend": "slurm",
+            "backend": backend,
             "export": "ALL",
             "shell": "/bin/sh",
             "env": ["export WANDB_SILENT=true"],
